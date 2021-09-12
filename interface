@@ -361,7 +361,7 @@ function bungiesLibrary.Load(SelectedLibrary)
                 button_tab.BackgroundTransparency = 0.4
                 button_tab.BorderColor3 = Color3.fromRGB(50, 50, 50)
                 button_tab.Position = UDim2.new(0.0118811885, 0, 0.233333334, 0)
-                button_tab.Size = UDim2.new(0, math.max(15, button_tab.TextBounds.X), 0, 20)
+                button_tab.Size = UDim2.new(0, math.max(15, button_tab.TextBounds.X), 0, 22)
                 button_tab.AutoButtonColor = false
                 button_tab.Font = Enum.Font.Jura
                 button_tab.LineHeight = 1.150
