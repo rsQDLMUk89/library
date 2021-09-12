@@ -1,5 +1,7 @@
 --  //    stop looking here
---  //                      made by bungie#4857
+--  //    made by bungie#4857
+
+
 --/ Locals
 local Player = game:GetService("Players").LocalPlayer
 local Mouse = Player:GetMouse()
@@ -2319,6 +2321,42 @@ function bungiesLibrary.Load(SelectedLibrary)
                             button_toggle.Text = "        " .. new
                         end
                         return CheckTools
+                    end
+                    function SectionTools:CreateLabel(Configuration_Label)
+                        Configuration_Label = {
+                            Text = Configuration_Label.Text or "label",
+                            Alignment = Configuration_Label.Alignment or Enum.TextXAlignment.Left
+                        }
+
+                        local holder_label = Instance.new("Frame")
+                        local layout_label = Instance.new("UIListLayout")
+                        local label = Instance.new("TextLabel")
+
+                        holder_label.Name = "holder_label"
+                        holder_label.Parent = section
+                        holder_label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                        holder_label.BackgroundTransparency = 1.000
+                        holder_label.Position = UDim2.new(0.0169491526, 0, 0.390625, 0)
+                        holder_label.Size = UDim2.new(0, 224, 0, 16)
+
+                        layout_label.Name = "layout_label"
+                        layout_label.Parent = holder_label
+                        layout_label.SortOrder = Enum.SortOrder.LayoutOrder
+                        layout_label.VerticalAlignment = Enum.VerticalAlignment.Center
+
+                        label.Name = "label"
+                        label.Parent = holder_label
+                        label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                        label.BackgroundTransparency = 1.000
+                        label.Size = UDim2.new(0, 232, 0, 16)
+                        label.Font = Enum.Font.Jura
+                        label.Text = " " .. Configuration_Label.Text
+                        label.TextColor3 = Color3.fromRGB(225, 225, 225)
+                        label.TextSize = 13.000
+                        label.TextXAlignment = Configuration_Label.Alignment
+                        label.TextTruncate = "AtEnd"
+                        updateSection()
+                        updateSize()
                     end
                     function SectionTools.SetHeader(new)
                         section_header.Text = new
