@@ -153,13 +153,6 @@ function bungiesLibrary.Load(SelectedLibrary)
             return getKey()
         end
 
-        -- Detects any other copies of the UI (used for developing, anti replicating.)
-        for i, v in next, game.CoreGui:GetDescendants() do
-            if v:IsA("ScreenGui") and string.find(v.Name, "ui_") and ui == true then
-                v:Destroy()
-            end
-        end
-
         -- Window function
         local Interface = {}
         function Interface:Start(Configuration)
@@ -2392,9 +2385,141 @@ function bungiesLibrary.Load(SelectedLibrary)
             function InterfaceTools.SetVisibleKeybind(new)
                 visKey = new
             end
+            function InterfaceTools.Destroy()
+                design:Destroy()
+            end
             return InterfaceTools
         end
         return Interface
+    end
+    if string.find(string.lower(SelectedLibrary), "notif") then
+        local notifications = Instance.new("ScreenGui")
+        local layout_notifications = Instance.new("UIListLayout")
+        local padding_notifications = Instance.new("UIPadding")
+
+        notifications.Name = "notifications"
+        notifications.Parent = CoreGuiService
+        notifications.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+        layout_notifications.Name = "layout_notifications"
+        layout_notifications.Parent = notifications
+        layout_notifications.SortOrder = Enum.SortOrder.LayoutOrder
+        layout_notifications.Padding = UDim.new(0, 4)
+
+        padding_notifications.Name = "padding_notifications"
+        padding_notifications.Parent = notifications
+        padding_notifications.PaddingLeft = UDim.new(0, 25)
+        padding_notifications.PaddingTop = UDim.new(0, 60)
+
+        local NotificationLibrary = {}
+        function NotificationLibrary:Send(Configuration)
+            Configuration = {
+                Header = Configuration.Header or "undefined header",
+                Notification = Configuration.Notification or "undefined notification",
+                Time = Configuration.Time or 3
+            }
+
+            local design = Instance.new("Frame")
+            local layout_design = Instance.new("UIListLayout")
+            local design_1 = Instance.new("Frame")
+            local layout_design_1 = Instance.new("UIListLayout")
+            local haeder_notification = Instance.new("TextLabel")
+            local padding_header_notification = Instance.new("UIPadding")
+            local design_2_cutoff = Instance.new("Frame")
+            local gradient_design_2_cutoff = Instance.new("UIGradient")
+            local note_notification = Instance.new("TextLabel")
+            local padding_note_notification = Instance.new("UIPadding")
+
+            design.Name = "design"
+            design.Parent = notifications
+            design.BackgroundColor3 = Color3.fromRGB(111, 83, 177)
+            design.BorderColor3 = Color3.fromRGB(23, 23, 23)
+            design.Position = UDim2.new(0.0193798449, 0, 0.0727272704, 0)
+            design.Size = UDim2.new(0, 332, 0, 70)
+
+            layout_design.Name = "layout_design"
+            layout_design.Parent = design
+            layout_design.HorizontalAlignment = Enum.HorizontalAlignment.Center
+            layout_design.SortOrder = Enum.SortOrder.LayoutOrder
+            layout_design.VerticalAlignment = Enum.VerticalAlignment.Center
+
+            design_1.Name = "design_1"
+            design_1.Parent = design
+            design_1.AnchorPoint = Vector2.new(0.5, 0.5)
+            design_1.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+            design_1.BorderColor3 = Color3.fromRGB(23, 23, 23)
+            design_1.BorderSizePixel = 2
+            design_1.Position = UDim2.new(0.5, 0, 0.432098776, 0)
+            design_1.Size = UDim2.new(0, 326, 0, 64)
+
+            layout_design_1.Name = "layout_design_1"
+            layout_design_1.Parent = design_1
+            layout_design_1.HorizontalAlignment = Enum.HorizontalAlignment.Center
+            layout_design_1.SortOrder = Enum.SortOrder.LayoutOrder
+
+            haeder_notification.Name = "haeder_notification"
+            haeder_notification.Parent = design_1
+            haeder_notification.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+            haeder_notification.BorderSizePixel = 0
+            haeder_notification.Position = UDim2.new(0.193251535, 0, -0.0681818202, 0)
+            haeder_notification.Size = UDim2.new(0, 326, 0, 24)
+            haeder_notification.Font = Enum.Font.Jura
+            haeder_notification.Text = Configuration.Header
+            haeder_notification.TextColor3 = Color3.fromRGB(232, 232, 232)
+            haeder_notification.TextSize = 15.000
+            haeder_notification.TextXAlignment = Enum.TextXAlignment.Left
+
+            padding_header_notification.Name = "padding_header_notification"
+            padding_header_notification.Parent = haeder_notification
+            padding_header_notification.PaddingBottom = UDim.new(0, 4)
+            padding_header_notification.PaddingLeft = UDim.new(0, 4)
+            padding_header_notification.PaddingRight = UDim.new(0, 4)
+            padding_header_notification.PaddingTop = UDim.new(0, 2)
+
+            design_2_cutoff.Name = "design_2_cutoff"
+            design_2_cutoff.Parent = design_1
+            design_2_cutoff.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            design_2_cutoff.BorderSizePixel = 0
+            design_2_cutoff.Position = UDim2.new(0, 0, 1, 0)
+            design_2_cutoff.Size = UDim2.new(0, 326, 0, 1)
+
+            gradient_design_2_cutoff.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(102, 78, 167)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(55, 42, 91))}
+            gradient_design_2_cutoff.Rotation = 90
+            gradient_design_2_cutoff.Name = "gradient_design_2_cutoff"
+            gradient_design_2_cutoff.Parent = design_2_cutoff
+
+            note_notification.Name = "note_notification"
+            note_notification.Parent = design_1
+            note_notification.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+            note_notification.BorderSizePixel = 0
+            note_notification.Position = UDim2.new(0, 0, 0.333333343, 0)
+            note_notification.Size = UDim2.new(0, 326, 0, 33)
+            note_notification.Font = Enum.Font.Jura
+            note_notification.Text = Configuration.Notification
+            note_notification.TextColor3 = Color3.fromRGB(232, 232, 232)
+            note_notification.TextSize = 12.000
+            note_notification.TextWrapped = true
+            note_notification.TextXAlignment = Enum.TextXAlignment.Left
+            note_notification.TextYAlignment = Enum.TextYAlignment.Top
+
+            local newNotificationSize = TextService:GetTextSize(note_notification.Text, note_notification.TextSize, note_notification.Font, Vector2.new(math.huge))
+            design.Size = UDim2.new(0, 332, 0, newNotificationSize.Y + 40)
+            design_1.Size = UDim2.new(0, 326, 0, newNotificationSize.Y + 34)
+            note_notification.Size = UDim2.new(0, 326, 0, newNotificationSize.Y)
+
+            padding_note_notification.Name = "padding_note_notification"
+            padding_note_notification.Parent = note_notification
+            padding_note_notification.PaddingBottom = UDim.new(0, 4)
+            padding_note_notification.PaddingLeft = UDim.new(0, 4)
+            padding_note_notification.PaddingRight = UDim.new(0, 4)
+            padding_note_notification.PaddingTop = UDim.new(0, 4)
+            function des()
+                wait(Configuration.Time)
+                design:Destroy()
+            end
+            coroutine.wrap(des)(design, Configuration.Time)
+        end
+        return NotificationLibrary
     end
 end
 return bungiesLibrary
