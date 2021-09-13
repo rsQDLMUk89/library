@@ -380,7 +380,7 @@ function bungiesLibrary.Load(SelectedLibrary)
                     button_tab.Font,
                     Vector2.new(math.huge, math.huge)
                 )
-                button_tab.Size = UDim2.new(0, 12 + newTabButtonSize.X, 0, 20)
+                button_tab.Size = UDim2.new(0, 12 + newTabButtonSize.X, 0, 22)
 
                 cut_button_tab.Name = "cut_button_tab"
                 cut_button_tab.Parent = button_tab
