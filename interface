@@ -2498,17 +2498,17 @@ function bungiesLibrary.Load(SelectedLibrary)
             note_notification.Text = Configuration.Notification
             note_notification.TextColor3 = Color3.fromRGB(232, 232, 232)
             note_notification.TextSize = 12.000
-            note_notification.TextWrapped = true
+            note_notification.TextWrapped = false
             note_notification.TextXAlignment = Enum.TextXAlignment.Left
             note_notification.TextYAlignment = Enum.TextYAlignment.Top
 
             padding_note_notification.Name = "padding_note_notification"
             padding_note_notification.Parent = note_notification
-            padding_note_notification.PaddingBottom = UDim.new(0, 4)
+            padding_note_notification.PaddingBottom = UDim.new(0, 0)
             padding_note_notification.PaddingLeft = UDim.new(0, 4)
             padding_note_notification.PaddingRight = UDim.new(0, 4)
             padding_note_notification.PaddingTop = UDim.new(0, 4)
-            
+        
             local newNotificationSize = TextService:GetTextSize(note_notification.Text, note_notification.TextSize, note_notification.Font, Vector2.new(math.huge, math.huge))
             design.Size = UDim2.new(0, 332, 0, newNotificationSize.Y + 40)
             design_1.Size = UDim2.new(0, 326, 0, newNotificationSize.Y + 34)
