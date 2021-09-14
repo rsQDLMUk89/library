@@ -1922,7 +1922,7 @@ function bungiesLibrary.Load(SelectedLibrary)
                         )
 
                         textbox.FocusLost:Connect(
-                            function()
+                            function(enterPressed)
                                 if enterPressed then
                                     Configuration_TextBox.Script(textbox.Text)
                                     TweenService:Create(
