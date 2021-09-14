@@ -1870,7 +1870,6 @@ function bungiesLibrary.Load(SelectedLibrary)
                         )
                         textbox.Focused:Connect(
                             function()
-                                if enterPressed then
                                     local newTextboxSize =
                                         TextService:GetTextSize(
                                         textbox.Text,
@@ -1893,7 +1892,6 @@ function bungiesLibrary.Load(SelectedLibrary)
                                         TweenTable["textbox_autoscale"],
                                         {Size = UDim2.new(0, newTextboxSize.X + 4, 0, 14)}
                                     ):Play()
-                                end
                             end
                         )
                         textbox:GetPropertyChangedSignal("Text"):Connect(
@@ -1925,22 +1923,24 @@ function bungiesLibrary.Load(SelectedLibrary)
 
                         textbox.FocusLost:Connect(
                             function()
-                                Configuration_TextBox.Script(textbox.Text)
-                                TweenService:Create(
-                                    design_textbox_2_2,
-                                    TweenTable["textbox_autoscale"],
-                                    {Size = UDim2.new(0, 72, 0, 12)}
-                                ):Play()
-                                TweenService:Create(
-                                    textbox,
-                                    TweenTable["textbox_autoscale"],
-                                    {Size = UDim2.new(0, 72, 0, 12)}
-                                ):Play()
-                                TweenService:Create(
-                                    design_textbox_2,
-                                    TweenTable["textbox_autoscale"],
-                                    {Size = UDim2.new(0, 74, 0, 14)}
-                                ):Play()
+                                if enterPressed then
+                                    Configuration_TextBox.Script(textbox.Text)
+                                    TweenService:Create(
+                                        design_textbox_2_2,
+                                        TweenTable["textbox_autoscale"],
+                                        {Size = UDim2.new(0, 72, 0, 12)}
+                                    ):Play()
+                                    TweenService:Create(
+                                        textbox,
+                                        TweenTable["textbox_autoscale"],
+                                        {Size = UDim2.new(0, 72, 0, 12)}
+                                    ):Play()
+                                    TweenService:Create(
+                                        design_textbox_2,
+                                        TweenTable["textbox_autoscale"],
+                                        {Size = UDim2.new(0, 74, 0, 14)}
+                                    ):Play()
+                                end
                             end
                         )
 
