@@ -2110,7 +2110,7 @@ function bungiesLibrary.Load(SelectedLibrary)
                             Escape = "ESC",
                             Insert = "INS"
                         }
-                        button_keybind.Text = shorts[Configuration_Keybind.Key] or Configuration_Keybind.Key.Name
+                        button_keybind.Text = shorts[Configuration_Keybind.Key.Name] or Configuration_Keybind.Key.Name
                         
                         local chosenKeybind = Configuration_Keybind.Key
                         button_keybind.MouseButton1Click:Connect(
@@ -2128,7 +2128,7 @@ function bungiesLibrary.Load(SelectedLibrary)
                             function(c, p)
                                 if not p then
                                     if c.KeyCode.Name == chosenKeybind then
-                                        pcall(Configuration_Keybind.Script(chosenKeybind))
+                                        Configuration_Keybind.Script(chosenKeybind)
                                     end
                                 end
                             end
