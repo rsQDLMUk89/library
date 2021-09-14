@@ -2084,7 +2084,7 @@ function bungiesLibrary.Load(SelectedLibrary)
                         button_keybind.Size = UDim2.new(0, 24, 0, 12)
                         button_keybind.Font = Enum.Font.Jura
                         button_keybind.LineHeight = 1.100
-                        button_keybind.Text = "P"
+                        button_keybind.Text = ". . ."
                         button_keybind.TextColor3 = Color3.fromRGB(190, 190, 190)
                         button_keybind.TextSize = 12.000
 
@@ -2110,7 +2110,8 @@ function bungiesLibrary.Load(SelectedLibrary)
                             Escape = "ESC",
                             Insert = "INS"
                         }
-
+                        button_keybind.Text = shorts[Configuration_Keybind.Key] or Configuration_Keybind.Key.Name
+                        
                         local chosenKeybind = Configuration_Keybind.Key
                         button_keybind.MouseButton1Click:Connect(
                             function()
