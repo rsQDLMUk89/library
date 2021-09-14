@@ -2354,6 +2354,32 @@ function bungiesLibrary.Load(SelectedLibrary)
                         updateSection()
                         updateSize()
                     end
+                    function SectionTools:CreateDivider()
+                        local holder_cut = Instance.new("Frame")
+                        local layout_cut = Instance.new("UIListLayout")
+                        local cut = Instance.new("Frame")
+
+                        holder_cut.Name = "holder_cut"
+                        holder_cut.Parent = section
+                        holder_cut.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                        holder_cut.BackgroundTransparency = 1.000
+                        holder_cut.Position = UDim2.new(0.0254237279, 0, 0.733333349, 0)
+                        holder_cut.Size = UDim2.new(0, 224, 0, 3)
+
+                        layout_cut.Name = "layout_cut"
+                        layout_cut.Parent = holder_cut
+                        layout_cut.HorizontalAlignment = Enum.HorizontalAlignment.Center
+                        layout_cut.SortOrder = Enum.SortOrder.LayoutOrder
+                        layout_cut.VerticalAlignment = Enum.VerticalAlignment.Center
+
+                        cut.Name = "cut"
+                        cut.Parent = holder_cut
+                        cut.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+                        cut.BorderSizePixel = 0
+                        cut.Size = UDim2.new(0, 218, 0, 1)
+                        updateSection()
+                        updateSize()
+                    end
                     function SectionTools.SetHeader(new)
                         section_header.Text = new
                     end
