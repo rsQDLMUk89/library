@@ -2356,7 +2356,7 @@ function bungiesLibrary.Load(SelectedLibrary)
 
                         local LabelTools = {}
                         function LabelTools.SetText(new)
-                            label.Text = new
+                            label.Text = " " .. new
                         end
                         return LabelTools
                     end
