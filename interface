@@ -1931,6 +1931,7 @@ function bungiesLibrary.Load(SelectedLibrary)
                             function(enterPressed)
                                 if enterPressed then
                                     Configuration_TextBox.Script(textbox.Text)
+                                end
                                     TweenService:Create(
                                         design_textbox_2_2,
                                         TweenTable["textbox_autoscale"],
@@ -1946,7 +1947,6 @@ function bungiesLibrary.Load(SelectedLibrary)
                                         TweenTable["textbox_autoscale"],
                                         {Size = UDim2.new(0, 74, 0, 14)}
                                     ):Play()
-                                end
                             end
                         )
 
