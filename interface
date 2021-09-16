@@ -1304,6 +1304,9 @@ function bungiesLibrary.Load(SelectedLibrary)
                                     end
                                 end
                             end
+                            updateDropdown()
+                            updateSection()
+                            updateSize()
                         end
                         function DropdownTools.RemoveOption(option)
                             for i, v in next, dropdown_container:GetChildren() do
@@ -1316,6 +1319,9 @@ function bungiesLibrary.Load(SelectedLibrary)
                                     end
                                 end
                             end
+                            updateDropdown()
+                            updateSection()
+                            updateSize()
                         end
                         return DropdownTools
                     end
