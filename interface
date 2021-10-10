@@ -2322,6 +2322,16 @@ function bungiesLibrary.Load(SelectedLibrary)
                         function CheckTools.SetText(new)
                             button_toggle.Text = "        " .. new
                         end
+                        function DestroyLocalCheck()
+                            button_toggle:Destroy()
+                            UpdateSection()
+                            UpdateSize()
+                        end
+                        function CheckTools.Destroy()
+                            button_toggle:Destroy()
+                            UpdateSection()
+                            UpdateSize()
+                        end                        
                         return CheckTools
                     end
                     function SectionTools:CreateLabel(Configuration_Label)
